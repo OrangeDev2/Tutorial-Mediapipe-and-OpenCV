@@ -13,6 +13,9 @@ Ted Talk on How computers learn to recognize objects instantly: https://www.yout
 
 https://user-images.githubusercontent.com/47803678/180339576-5530b531-fc5d-46f4-9caa-1537c07b0ad4.mov
 
+![image](https://user-images.githubusercontent.com/47803678/180485426-3708c527-d94c-46a2-8fdf-16b8407b032b.png)
+
+
 2. Pose Estimation
 3. Face Detection
 4. Face Mesh
