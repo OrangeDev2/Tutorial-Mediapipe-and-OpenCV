@@ -8,6 +8,12 @@ Ted Talk on How computers learn to recognize objects instantly: https://www.yout
 2. OpenCV-Python
 3. Google's Mediapipe
 
+# Useful Docs
+1. OpenCV: https://docs.opencv.org/4.6.0/dd/d43/tutorial_py_video_display.html
+2. Mediapipe: https://google.github.io/mediapipe/solutions/hands
+
+In case you want to know how to play video instead of live capture or something similiar. 
+
 # Modules
 1. Hand tracking
 
