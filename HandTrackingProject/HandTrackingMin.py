@@ -34,7 +34,8 @@ while True:
                 hand_landmarks,
                 mp_hands.HAND_CONNECTIONS,
                 mp_drawing_styles.get_default_hand_landmarks_style(),
-                mp_drawing_styles.get_default_hand_connections_style())
+                mp_drawing_styles.get_default_hand_connections_style()
+            )
 
     cv2.imshow("Display window", img)
     # Set 0 for image process.  Set 1 for video process
