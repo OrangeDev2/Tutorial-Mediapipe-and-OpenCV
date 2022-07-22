@@ -5,19 +5,15 @@ import time
 # Access and assign web camera to 'capture'
 capture = cv2.VideoCapture(0)
 
-# Access and assign video to 'video_capture'
-
-mp_hands = mp.solutions.hands
-hands = mp_hands.Hands()
-
+# adding Mediapipe solutions for drawing and hands.
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_hands = mp.solutions.hands
+hands = mp_hands.Hands()
 
 # Create a true loop to show live picture in new window screen
 # Image is shown with a call to cv2::imshow function
 
-# print(results.multi_hand_landmarks) outputs whenever mediapipe detect hands
 while True:
     success, img = capture.read()
 
@@ -25,6 +21,8 @@ while True:
     results = hands.process(imgRGB)
     # outputs whenever mediapipe detect hands
     #print(results.multi_hand_landmarks)
+
+    print(hands.process(imgRGB))
 
     # runs if results.multi_hand_landmarks or hands are detected
     if results.multi_hand_landmarks:
