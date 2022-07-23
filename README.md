@@ -1,6 +1,11 @@
 # FCC-Advanced-Computer-Vision-Course-with-Python
 Youtube link for full course: https://www.youtube.com/watch?v=01sAkU_NvOY
 
+# Objectives
+1. Understanding instructor's code as you code along, not just blindy copying the code.
+2. Read OpenCV and Mediapipe to see why instructor wrote code like in the video.
+3. Play around on your own for fun.  Look around on OpenCV and Mediapipe and see anything you'd like to do differently. For example, I learnt how to play video from file and write hand landmarks on the video as a Python begineer. 
+
 Ted Talk on How computers learn to recognize objects instantly: https://www.youtube.com/watch?v=Cgxsv1riJhI
 
 # Packages/Software
