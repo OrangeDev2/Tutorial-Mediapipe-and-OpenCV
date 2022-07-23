@@ -3,10 +3,13 @@ import mediapipe as mp
 import time
 
 # Access and assign web camera to 'capture'
-capture = cv2.VideoCapture(0)
+capture = cv2.VideoCapture(0)                                         # Option 1: Web camera
 
 # Same as above but playing video from a file
-#capture = cv2.VideoCapture('test.mp4')
+#capture = cv2.VideoCapture('test.mp4')                               # Option 2: Play video from a file
+
+# Same as above but single image with a frame rate
+#img = cv2.imread(cv2.samples.findFile("test.png"))                   # Option 3: Display image
 
 # adding Mediapipe solutions for drawing and hands.
 mpDraw = mp.solutions.drawing_utils
@@ -22,7 +25,7 @@ cTime = 0
 # Create a true loop to show live picture in new window screen
 # Image is shown with a call to cv2::imshow function
 while True:
-    success, img = capture.read()
+    success, img = capture.read()                                      # Comment this out if you want to process an image from file instead of a video.
 
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     results = hands.process(imgRGB)
@@ -47,5 +50,5 @@ while True:
                 3, (255,0,0), 3)
 
     cv2.imshow("Display window", img)
-    cv2.waitKey(1)                                                       # Set 0 for image process.  Set 1 for video process
+    cv2.waitKey(1)                                                       # IMPORTANT: Set 0 for image process.  Set 1 for video process
 
