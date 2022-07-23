@@ -15,19 +15,23 @@ Ted Talk on How computers learn to recognize objects instantly: https://www.yout
 In case you want to know how to play video instead of live capture or something similiar. 
 
 # Modules
-1. Hand tracking
+### 1. Hand tracking
 
 https://user-images.githubusercontent.com/47803678/180339576-5530b531-fc5d-46f4-9caa-1537c07b0ad4.mov
 
+Option 1: Web camera
+
 ![image](https://user-images.githubusercontent.com/47803678/180485426-3708c527-d94c-46a2-8fdf-16b8407b032b.png)
+
+Option 2: Play video from a file
 
 ![image](https://user-images.githubusercontent.com/47803678/180495280-c27e90ea-9cd5-4db7-a964-b997b9e05992.png)
 
 
 
-2. Pose Estimation
-3. Face Detection
-4. Face Mesh
+### 2. Pose Estimation
+### 3. Face Detection
+### 4. Face Mesh
 
 # Projects
 1. Gesture Volume Control
