@@ -3,16 +3,17 @@ import mediapipe as mp
 import time
 
 class handDetector():
-    def __init__(self, mode=False, maxHands = 2, detectionCon =0.5, trackCon=0.5):                  # Initiative default parameters and variables for the rest of program
+    def __init__(self, mode=False, maxHands = 2, complexity = 1, detectionCon =0.5, trackCon=0.5):                  # Initiative default parameters and variables for the rest of program
         self.mode = mode
         self.maxHands = maxHands
         self.detectionCon = detectionCon
         self.trackCon = trackCon
+        self.complexity = complexity
 
         # Mediapipe solutions for drawing and hands.
         self.mpDraw = mp.solutions.drawing_utils
         self.mpHands = mp.solutions.hands
-        self.hands = self.mpHands.Hands(self.mode, self.maxHands,
+        self.hands = self.mpHands.Hands(self.mode, self.maxHands, self.complexity,
                                         self.detectionCon, self.trackCon)
         self.mp_drawing_styles = mp.solutions.drawing_styles
 
