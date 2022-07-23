@@ -34,6 +34,17 @@ while True:
 
     if results.multi_hand_landmarks:                                    # Draw landmarks and connections by extracting information from results.
         for handLms in results.multi_hand_landmarks:
+
+            for id, lm in enumerate(handLms.landmark):
+                #print("id: " + str(id) + "\n" + "landmark position (x, y, z): " + "\n" + str(lm))   # id -> 0-20, lm -> x: 1 y: 2 z: 3
+                #print(handLms.landmark)
+
+                h, w, c = img.shape
+                cx, cy = int(lm.x*w), int(lm.y*h)
+                #print(id, cx, cy)
+                if id == 4:                                                     # Example, id == 4 then (cx, cy) extracted at 4 only
+                    cv2.circle(img, (cx, cy), 15, (255, 0, 0), cv2.FILLED)       # Draw a filled circle at (cx, cy) on the image
+
             mpDraw.draw_landmarks(
                 img,                                                    # draw on original image
                 handLms,                                                # looping landmarks (21 points) #0, 1, 2... for hands
@@ -50,5 +61,5 @@ while True:
                 3, (255,0,0), 3)
 
     cv2.imshow("Display window", img)
-    cv2.waitKey(1)                                                       # IMPORTANT: Set 0 for image process.  Set 1 for video process
+    cv2.waitKey(1)                                                      # IMPORTANT: Set 0 for image process.  Set 1 for video process
 
