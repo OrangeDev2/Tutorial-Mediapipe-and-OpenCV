@@ -3,7 +3,7 @@ import mediapipe as mp
 import time
 
 # Access and assign web camera to 'capture'
-#capture = cv2.VideoCapture(0)
+capture = cv2.VideoCapture(0)
 
 # Same as above but playing video from a file
 #capture = cv2.VideoCapture('test.mp4')
