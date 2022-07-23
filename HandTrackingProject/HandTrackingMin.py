@@ -2,16 +2,13 @@ import cv2
 import mediapipe as mp
 import time
 
-# Access and assign web camera to 'capture'
 capture = cv2.VideoCapture(0)                                         # Option 1: Web camera
 
-# Same as above but playing video from a file
 #capture = cv2.VideoCapture('test.mp4')                               # Option 2: Play video from a file
 
-# Same as above but single image with a frame rate
 #img = cv2.imread(cv2.samples.findFile("test.png"))                   # Option 3: Display image
 
-# adding Mediapipe solutions for drawing and hands.
+# Mediapipe solutions for drawing and hands.
 mpDraw = mp.solutions.drawing_utils
 mpHands = mp.solutions.hands
 hands = mpHands.Hands()
@@ -30,12 +27,11 @@ while True:
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     results = hands.process(imgRGB)
 
-    #print(results.multi_hand_landmarks)                                # outputs whenever mediapipe detect hands
 
     if results.multi_hand_landmarks:                                    # Draw landmarks and connections by extracting information from results.
         for handLms in results.multi_hand_landmarks:
-
-            for id, lm in enumerate(handLms.landmark):
+            #print(results.multi_hand_landmarks)
+            for id, lm in enumerate(handLms.landmark):                  # access landmark from results.multi_hand_landmarks List
                 #print("id: " + str(id) + "\n" + "landmark position (x, y, z): " + "\n" + str(lm))   # id -> 0-20, lm -> x: 1 y: 2 z: 3
                 #print(handLms.landmark)
 
