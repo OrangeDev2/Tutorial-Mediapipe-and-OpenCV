@@ -19,11 +19,11 @@ class handDetector():
 
     def findHands(self, img, draw = True):                                                                       # A method to draw hand landmarks
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        results = self.hands.process(imgRGB)
+        self.results = self.hands.process(imgRGB)
 
 
-        if results.multi_hand_landmarks:                                                            # Draw landmarks and connections by extracting information from results.
-            for handLms in results.multi_hand_landmarks:
+        if self.results.multi_hand_landmarks:                                                            # Draw landmarks and connections by extracting information from results.
+            for handLms in self.results.multi_hand_landmarks:
                 # print(results.multi_hand_landmarks)
 
                 if draw:
@@ -36,14 +36,27 @@ class handDetector():
                     )
         return img
 
-                #for id, lm in enumerate(handLms.landmark):                                          # access landmark from results.multi_hand_landmarks List
-                #    #print("id: " + str(id) + "\n" + "landmark position (x, y, z): " + "\n" + str(lm))   # id -> 0-20, lm -> x: 1 y: 2 z: 3
-                #    #print(handLms.landmark)
-                #    h, w, c = img.shape
-                #    cx, cy = int(lm.x*w), int(lm.y*h)
-                #    #print(id, cx, cy)
-                #    if id == 4:                                                                     # Example, id == 4 then (cx, cy) extracted at 4 only
-                #    cv2.circle(img, (cx, cy), 15, (255, 0, 0), cv2.FILLED)                          # Draw a filled circle at (cx, cy) on the image
+    def findPosition(self, img, handNo=0, draw=True):
+
+        lmList = []
+
+        if self.results.multi_hand_landmarks:
+            myHand = self.results.multi_hand_landmarks[handNo]
+
+            for id, lm in enumerate(myHand.landmark):                                          # access landmark from results.multi_hand_landmarks List
+                #print("id: " + str(id) + "\n" + "landmark position (x, y, z): " + "\n" + str(lm))   # id -> 0-20, lm -> x: 1 y: 2 z: 3
+                #print(myHand.landmark)
+
+                h, w, c = img.shape
+                cx, cy = int(lm.x*w), int(lm.y*h)
+                #print(id, cx, cy)
+                lmList.append([id, cx, cy])
+
+                if draw:
+                    if id == 4:                                                                     # Example, id == 4 then (cx, cy) extracted at 4 only
+                        cv2.circle(img, (cx, cy), 3, (255, 0, 255), cv2.FILLED)                          # Draw a filled circle at (cx, cy) on the image
+
+        return lmList
 
 def main():
     # Access and assign web camera to 'capture'
@@ -65,6 +78,9 @@ def main():
     while True:
         success, img = capture.read()
         img = detector.findHands(img)                         # pass img to findHands() method within detector = handDetectors() class.
+        lmList = detector.findPosition(img)                   # return value from method call assigned to lmList
+        if len(lmList) != 0:
+            print(lmList[4])
 
         cTime = time.time()
         fps = 1 / (cTime - pTime)
