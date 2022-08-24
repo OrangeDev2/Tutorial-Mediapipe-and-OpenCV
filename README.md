@@ -35,17 +35,3 @@ Option 2: Play video from a file
 Option 3: Drawing landmarks on image with a frame rate
 
 ![image](https://user-images.githubusercontent.com/47803678/180586442-caadda41-b286-4e41-9be9-c7057ea9dd90.png)
-
-
-
-
-### 2. Pose Estimation
-### 3. Face Detection
-### 4. Face Mesh
-
-# Projects
-1. Gesture Volume Control
-2. Finger Counter
-3. AI Personal Trainer
-4. AI Virtual Painter
-5. AI Virtual Mouse
